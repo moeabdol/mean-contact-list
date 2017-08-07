@@ -9,6 +9,7 @@ const app = express();
 
 const routes = require("./routes/routes");
 
+mongoose.Promise = global.Promise;
 
 // Connect to database
 mongoose.connect("mongodb://localhost:27017", { useMongoClient: true });

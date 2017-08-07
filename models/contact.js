@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+mongoose.Promise = global.Promise;
+
 const contactSchema = mongoose.Schema({
   firstName: {
     type: String,
