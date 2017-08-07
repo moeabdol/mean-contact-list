@@ -9,6 +9,18 @@ const app = express();
 
 const routes = require("./routes/routes");
 
+
+// Connect to database
+mongoose.connect("mongodb://localhost:27017", { useMongoClient: true });
+mongoose.connection.on("connected", () => {
+  console.log("Connected to database");
+});
+mongoose.connection.on("error", (err) => {
+  if (err) {
+    console.log("Error in database connection: " + err);
+  }
+});
+
 const port = 3000;
 
 // Add middleware
